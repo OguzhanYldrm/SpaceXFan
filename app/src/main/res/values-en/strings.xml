@@ -6,4 +6,6 @@
     <string name="rockets">Rockets</string>
     <string name="spacex_fan">SpaceX Fan</string>
     <string name="splash_screen_image">Splash Screen Image</string>
+    <string name="favourites_rockets">Favourites Rockets</string>
+    <string name="rocket_list">Rocket List</string>
 </resources>
