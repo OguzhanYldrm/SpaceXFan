@@ -2,7 +2,6 @@
 <resources>
 
     <style name="Theme.App" parent="Theme.MaterialComponents.NoActionBar">
-
         <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
     </style>
 

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_1"
+        android:id="@+id/rockets_page"
         android:enabled="true"
         android:icon="@drawable/dr_tabbar_rocket"
         android:title="@string/rockets"/>
     <item
-        android:id="@+id/page_2"
+        android:id="@+id/upcoming_page"
         android:enabled="true"
         android:icon="@drawable/dr_tabbar_launch"
         android:title="@string/upcoming_launches"/>
 
     <item
-        android:id="@+id/page_3"
+        android:id="@+id/favourite_page"
         android:enabled="true"
         android:icon="@drawable/dr_tabbar_favourite"
         android:title="@string/favourites"/>

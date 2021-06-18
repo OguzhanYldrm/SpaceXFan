@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 /*
  * https://api.spacexdata.com/v4/launches/upcoming
  */
-data class UpcommingModel (
+data class UpcomingModel (
 
     @SerializedName("links") var links : Links,
     @SerializedName("static_fire_date_utc") var staticFireDateUtc : String,

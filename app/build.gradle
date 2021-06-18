@@ -11,6 +11,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId "com.example.spacexfan"
         minSdkVersion 23
         targetSdkVersion 30
