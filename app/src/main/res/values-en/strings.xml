@@ -4,4 +4,6 @@
     <string name="favourites">Favourites</string>
     <string name="upcoming_launches">Upcoming Launches</string>
     <string name="rockets">Rockets</string>
+    <string name="spacex_fan">SpaceX Fan</string>
+    <string name="splash_screen_image">Splash Screen Image</string>
 </resources>
