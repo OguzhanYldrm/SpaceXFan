@@ -1,6 +1,6 @@
-package com.example.spacexfan
+package com.example.spacexfan.model
 
-import com.example.spacexfan.modelproperties.Links
+import com.example.spacexfan.model.modelproperties.Links
 import com.google.gson.annotations.SerializedName
 
 /*

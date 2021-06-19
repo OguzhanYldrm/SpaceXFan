@@ -49,32 +49,44 @@ dependencies {
     def rxJavaVersion = '2.2.8'
     def rxAndroidVersion = '2.1.1'
     def roomVersion = '2.3.0'
-    def navVersion = '2.3.5'
+    def cardViewVersion = '1.0.0'
+    def carouselVersion = '2.0.2'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.5.0'
     implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //Lifecycle
     implementation "android.arch.lifecycle:extensions:$lifeCycleExtensionVersion"
+
+    //Room
     implementation "androidx.room:room-runtime:$roomVersion"
-    implementation "androidx.legacy:legacy-support-v4:1.0.0"
     kapt "androidx.room:room-compiler:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
+
+    //Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1"
-    implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
-    implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
-    implementation "com.google.android.material:material:1.3.0"
+
+    //Api
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+
+    //Glide
     implementation "com.github.bumptech.glide:glide:$glideVersion"
+
+    //UI Elements
     implementation "com.android.support:design:$supportVersion"
+    implementation "androidx.cardview:cardview:$cardViewVersion"
+    implementation 'me.relex:circleindicator:2.1.6'
+    implementation "org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:$carouselVersion"
 
 }

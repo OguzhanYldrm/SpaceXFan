@@ -1,4 +1,4 @@
-package com.example.spacexfan.modelproperties
+package com.example.spacexfan.model.modelproperties
 
 import com.google.gson.annotations.SerializedName
 

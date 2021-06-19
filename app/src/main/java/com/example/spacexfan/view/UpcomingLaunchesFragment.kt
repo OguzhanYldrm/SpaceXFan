@@ -1,12 +1,13 @@
-package com.example.spacexfan
+package com.example.spacexfan.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.spacexfan.R
 
-class RocketListFragment : Fragment() {
+class UpcomingLaunchesFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +18,7 @@ class RocketListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rocket_list, container, false)
+        return inflater.inflate(R.layout.fragment_upcoming_launches, container, false)
     }
 
 }
