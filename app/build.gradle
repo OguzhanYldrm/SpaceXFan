@@ -51,6 +51,7 @@ dependencies {
     def roomVersion = '2.3.0'
     def cardViewVersion = '1.0.0'
     def carouselVersion = '2.0.2'
+    def biometricVersion = '1.1.0'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.5.0'
@@ -82,6 +83,9 @@ dependencies {
 
     //Glide
     implementation "com.github.bumptech.glide:glide:$glideVersion"
+
+    //Fingerprint
+    implementation "androidx.biometric:biometric:$biometricVersion"
 
     //UI Elements
     implementation "com.android.support:design:$supportVersion"
