@@ -16,15 +16,16 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp">
 
                 <ImageView
-                    android:id="@+id/media_image"
+                    android:id="@+id/media_image_launch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_margin="1dp"
-                    android:background="@drawable/loading_1"
+                    android:background="@drawable/rocket_placeholder"
                     android:contentDescription="@string/rocket_image"
                     android:scaleType="centerCrop" />
 
@@ -32,7 +33,7 @@
                     android:id="@+id/date_launch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/media_image"
+                    android:layout_below="@id/media_image_launch"
                     android:layout_marginStart="25dp"
                     android:text="@string/november_10" />
 
@@ -65,6 +66,7 @@
                 </RelativeLayout>
 
                 <ImageView
+                    android:id="@+id/go_wikipedia_launch"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_below="@id/line"

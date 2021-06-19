@@ -1,6 +1,7 @@
 package com.example.spacexfan.adapter
 
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.spacexfan.R
 import com.example.spacexfan.model.RocketModel
 import com.example.spacexfan.model.UpcomingModel
+import com.example.spacexfan.utils.loadImage
+import com.example.spacexfan.utils.notFoundPlaceholder
 import com.example.spacexfan.view.detail.RocketDetail
 import com.example.spacexfan.view.detail.UpcomingDetail
 import com.example.spacexfan.viewmodel.UpcomingLaunchesViewModel
@@ -35,11 +38,43 @@ class UpcomingLaunchesAdapter(val launchesList : ArrayList<UpcomingModel>) : Rec
         holder.itemView.title_launch.text = launchesList[position].name
 
         //Detail
-        holder.itemView.details.text = launchesList[position].details
+        var detail : String? = launchesList[position].details
+        if (detail != null){
+            if(detail.length>120){
+                detail = detail.substring(0, 119) + "..."
+            }
+        } else{
+            detail = "No detailed information found. Please check the links."
+        }
+
+        holder.itemView.details.text = detail
+
 
         //Flight Date
         holder.itemView.date_launch.text = launchesList[position].fireDate
 
+        //Image
+        val url : String?  = launchesList[position].links.patch.small
+        if (url != null){
+            if (url != "" && (url.contains("http") || url.contains("https"))){
+                holder.itemView.media_image_launch.loadImage(
+                    url,
+                    notFoundPlaceholder(holder.itemView.context)
+                )
+            }
+        }
+
+        //Wikipedia
+        val wikiLink : String? = launchesList[position].links.wikipedia
+
+        if (wikiLink != null){
+            if (wikiLink != ""){
+                holder.itemView.go_wikipedia_launch.setOnClickListener {
+                    val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(wikiLink))
+                    startActivity(holder.itemView.context, browserIntent, null)
+                }
+            }
+        }
 
 
         //Detail Button

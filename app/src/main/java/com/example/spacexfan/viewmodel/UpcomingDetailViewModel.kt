@@ -15,7 +15,7 @@ class UpcomingDetailViewModel : ViewModel() {
         val upcoming = UpcomingModel(
                 Links(Patch("",""),
                     Reddit("",""),
-                    Flickr(listOf(), listOf()), "", "ASD", ""),
+                     "", "ASD", ""),
             "10.10.2021",
              "Falcon 9",
             "Launched to the moon",
