@@ -10,7 +10,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".view.RocketListFragment">
+            tools:context=".view.tabs.RocketListFragment">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rockets_list_recycler"

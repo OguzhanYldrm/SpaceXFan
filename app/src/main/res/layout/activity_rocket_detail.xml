@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.RocketDetail">
+    tools:context=".view.detail.RocketDetail">
 
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/carousel"
@@ -19,8 +19,6 @@
         app:carouselType="SHOWCASE"
         app:imagePlaceholder="@drawable/ic_favourite_black"
         app:imageScaleType="fitCenter"
-        app:imageViewId="@id/img"
-        app:itemLayout="@layout/item_carousel"
         app:nextButtonId="@id/btn_next"
         app:nextButtonLayout="@layout/next_button_layout"
         app:nextButtonMargin="4dp"

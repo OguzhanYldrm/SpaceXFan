@@ -10,7 +10,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".view.UpcomingLaunchesFragment">
+            tools:context=".view.tabs.UpcomingLaunchesFragment">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/upcoming_launches_recycler"
@@ -19,7 +19,7 @@
                 android:layout_margin="1dp" />
 
             <RelativeLayout
-                android:id="@+id/not_found"
+                android:id="@+id/not_found_launch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true">
@@ -40,7 +40,7 @@
             </RelativeLayout>
 
             <ImageView
-                android:id="@+id/loading"
+                android:id="@+id/loading_launch"
                 android:layout_width="95dp"
                 android:layout_height="95dp"
                 android:layout_centerInParent="true"

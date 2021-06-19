@@ -41,4 +41,10 @@
     <string name="detail_height_meters">1700 m</string>
     <string name="detail_diameter_meters">3.8 m</string>
     <string name="_25000_kg">25000 kg</string>
+    <string name="fire_date">Fire Date :</string>
+    <string name="flight_number">Flight Number :</string>
+    <string name="flight_name">Flight Name :</string>
+    <string name="_133">133</string>
+    <string name="launch">Launch</string>
+    <string name="upcoming_detail_image">Upcoming Detail Image</string>
 </resources>

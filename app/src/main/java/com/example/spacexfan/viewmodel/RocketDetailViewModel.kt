@@ -7,17 +7,11 @@ import com.example.spacexfan.model.modelproperties.Diameter
 import com.example.spacexfan.model.modelproperties.Height
 import com.example.spacexfan.model.modelproperties.Mass
 
-class RocketListViewModel : ViewModel() {
-    val rockets = MutableLiveData<List<RocketModel>>()
-    val rocketNotFound = MutableLiveData<Boolean>()
-    val rocketsLoading = MutableLiveData<Boolean>()
+class RocketDetailViewModel : ViewModel() {
 
-    fun refreshRockets(){
+    val rocketDetailLiveData = MutableLiveData<RocketModel>()
 
-
-
-        val rocketList = arrayListOf<RocketModel>()
-
+    fun getData(){
         val rocket = RocketModel(
             Height(1000),
             Diameter(3.5),
@@ -34,11 +28,6 @@ class RocketListViewModel : ViewModel() {
             "Good Rocket",
             "10005")
 
-        rocketList.add(rocket)
-
-        rockets.value = rocketList
-        rocketNotFound.value = false
-        rocketsLoading.value = false
+        rocketDetailLiveData.value = rocket
     }
-
 }

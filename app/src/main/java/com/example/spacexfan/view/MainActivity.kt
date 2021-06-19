@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.spacexfan.R
+import com.example.spacexfan.view.tabs.FavouriteRocketsFragment
+import com.example.spacexfan.view.tabs.RocketListFragment
+import com.example.spacexfan.view.tabs.UpcomingLaunchesFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
