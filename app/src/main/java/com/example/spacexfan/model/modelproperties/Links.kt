@@ -1,8 +1,9 @@
 package com.example.spacexfan.model.modelproperties
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-   
+
 data class Links (
 
     @SerializedName("patch") var patch : Patch,
@@ -11,4 +12,4 @@ data class Links (
     @SerializedName("article") var article : String,
     @SerializedName("wikipedia") var wikipedia : String
 
-)
+)  : Serializable

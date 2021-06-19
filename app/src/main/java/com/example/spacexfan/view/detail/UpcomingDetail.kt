@@ -1,12 +1,16 @@
 package com.example.spacexfan.view.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.Observer
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.example.spacexfan.R
+import com.example.spacexfan.model.UpcomingModel
+import com.example.spacexfan.utils.loadImage
+import com.example.spacexfan.utils.notFoundPlaceholder
 import com.example.spacexfan.viewmodel.UpcomingDetailViewModel
 import kotlinx.android.synthetic.main.activity_upcoming_detail.*
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
+
 
 class UpcomingDetail : AppCompatActivity() {
 
@@ -17,8 +21,11 @@ class UpcomingDetail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upcoming_detail)
 
+        val intent = intent
+        val upcomingData: UpcomingModel = intent.getSerializableExtra("Upcoming") as UpcomingModel
+
         viewModel = ViewModelProviders.of(this).get(UpcomingDetailViewModel::class.java)
-        viewModel.getData()
+        viewModel.getData(upcomingData)
 
         observeLiveData()
 
@@ -31,7 +38,10 @@ class UpcomingDetail : AppCompatActivity() {
                 upcoming_details.text = it.details
                 upcoming_flight_name.text = it.name
                 upcoming_flight_number.text = it.flightNumber.toString()
-                //upcoming_image.text = it
+                if (it.links.patch.small != null){
+                    upcoming_image.loadImage(it.links.patch.small, notFoundPlaceholder(applicationContext))
+                }
+
                 upcoming_rocket.text = it.rocket
 
             }

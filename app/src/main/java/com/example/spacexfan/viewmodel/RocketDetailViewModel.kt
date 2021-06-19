@@ -11,23 +11,7 @@ class RocketDetailViewModel : ViewModel() {
 
     val rocketDetailLiveData = MutableLiveData<RocketModel>()
 
-    fun getData(){
-        val rocket = RocketModel(
-            Height(100.0),
-            Diameter(3.5),
-            Mass(250000),
-            listOf("a"),
-            "Falcon 9",
-            "Merlin",
-            true,
-            900000,
-            90,
-            "10.10.2021",
-            "SpaceX",
-            "",
-            "Good Rocket",
-            "10005")
-
+    fun getData(rocket : RocketModel){
         rocketDetailLiveData.value = rocket
     }
 }

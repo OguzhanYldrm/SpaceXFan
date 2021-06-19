@@ -1,25 +1,27 @@
 package com.example.spacexfan.view.tabs
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.spacexfan.R
 import com.example.spacexfan.adapter.UpcomingLaunchesAdapter
+import com.example.spacexfan.model.RocketModel
+import com.example.spacexfan.model.UpcomingModel
+import com.example.spacexfan.view.detail.RocketDetail
+import com.example.spacexfan.view.detail.UpcomingDetail
 import com.example.spacexfan.viewmodel.UpcomingLaunchesViewModel
 import kotlinx.android.synthetic.main.fragment_upcoming_launches.*
 
 class UpcomingLaunchesFragment : Fragment() {
 
     private lateinit var viewModel: UpcomingLaunchesViewModel
-    private val recyclerUpcomingLaunchesAdapter = UpcomingLaunchesAdapter(arrayListOf())
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private val recyclerUpcomingLaunchesAdapter = UpcomingLaunchesAdapter(arrayListOf(), this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,6 +82,12 @@ class UpcomingLaunchesFragment : Fragment() {
             }
 
         })
+    }
+
+    fun onDetailClick(data: UpcomingModel) {
+        val intent = Intent(context, UpcomingDetail::class.java)
+        intent.putExtra("Upcoming", data)
+        context?.let { ContextCompat.startActivity(it, intent, null) }
     }
 
 }

@@ -14,17 +14,19 @@ import com.example.spacexfan.utils.loadImage
 import com.example.spacexfan.utils.notFoundPlaceholder
 import com.example.spacexfan.view.detail.RocketDetail
 import com.example.spacexfan.view.detail.UpcomingDetail
+import com.example.spacexfan.view.tabs.RocketListFragment
+import com.example.spacexfan.view.tabs.UpcomingLaunchesFragment
 import com.example.spacexfan.viewmodel.UpcomingLaunchesViewModel
 import kotlinx.android.synthetic.main.activity_upcoming_detail.view.*
 import kotlinx.android.synthetic.main.item_rocket_list.view.*
 import kotlinx.android.synthetic.main.item_rocket_list.view.go_detail_page
 import kotlinx.android.synthetic.main.item_upcoming_launches.view.*
 
-class UpcomingLaunchesAdapter(val launchesList : ArrayList<UpcomingModel>) : RecyclerView.Adapter<UpcomingLaunchesAdapter.UpcomingLaunchesViewHolder>() {
-    class UpcomingLaunchesViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+class UpcomingLaunchesAdapter(launches : ArrayList<UpcomingModel>, parentFragment: UpcomingLaunchesFragment) : RecyclerView.Adapter<UpcomingLaunchesAdapter.UpcomingLaunchesViewHolder>() {
+    private val launchesList : ArrayList<UpcomingModel> = launches
+    private val fragment : UpcomingLaunchesFragment = parentFragment
 
-    }
-
+    class UpcomingLaunchesViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpcomingLaunchesViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -78,9 +80,9 @@ class UpcomingLaunchesAdapter(val launchesList : ArrayList<UpcomingModel>) : Rec
 
 
         //Detail Button
-        holder.itemView.go_detail_page.setOnClickListener{
-            val intent = Intent(holder.itemView.context, UpcomingDetail::class.java)
-            startActivity(holder.itemView.context, intent, null)
+        val data : UpcomingModel = launchesList[position]
+        holder.itemView.go_detail_page_launch.setOnClickListener{
+        fragment.onDetailClick(data)
         }
     }
 

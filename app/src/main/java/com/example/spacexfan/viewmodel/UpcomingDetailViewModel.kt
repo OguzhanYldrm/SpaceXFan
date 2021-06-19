@@ -11,17 +11,7 @@ class UpcomingDetailViewModel : ViewModel() {
 
     val upcomingDetailLiveData = MutableLiveData<UpcomingModel>()
 
-    fun getData(){
-        val upcoming = UpcomingModel(
-                Links(Patch("",""),
-                    Reddit("",""),
-                     "", "ASD", ""),
-            "10.10.2021",
-             "Falcon 9",
-            "Launched to the moon",
-            100,
-            "Starlink 20",
-            "10000")
+    fun getData(upcoming : UpcomingModel){
         upcomingDetailLiveData.value = upcoming
     }
 }

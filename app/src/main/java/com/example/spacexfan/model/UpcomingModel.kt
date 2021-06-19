@@ -2,6 +2,7 @@ package com.example.spacexfan.model
 
 import com.example.spacexfan.model.modelproperties.Links
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 /*
  * https://api.spacexdata.com/v4/launches/upcoming
@@ -16,4 +17,4 @@ data class UpcomingModel (
     @SerializedName("name") var name : String,
     @SerializedName("id") var id : String
 
-)
+)  : Serializable

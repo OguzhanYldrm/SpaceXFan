@@ -96,7 +96,7 @@
                     android:layout_below="@id/details">
 
                     <TextView
-                        android:id="@+id/go_detail_page"
+                        android:id="@+id/go_detail_page_launch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"

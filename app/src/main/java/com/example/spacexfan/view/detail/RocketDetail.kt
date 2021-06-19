@@ -1,24 +1,32 @@
 package com.example.spacexfan.view.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.Observer
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.example.spacexfan.R
+import com.example.spacexfan.model.RocketModel
 import com.example.spacexfan.viewmodel.RocketDetailViewModel
 import kotlinx.android.synthetic.main.activity_rocket_detail.*
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
+
 
 class RocketDetail : AppCompatActivity() {
 
     private lateinit var viewModel: RocketDetailViewModel
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rocket_detail)
 
+        val intent = intent
+        val rocketData: RocketModel = intent.getSerializableExtra("Rocket") as RocketModel
+
+        rocketData.flickrImages.forEach {
+            carousel.addData(CarouselItem(it))
+        }
+        
         viewModel = ViewModelProviders.of(this).get(RocketDetailViewModel::class.java)
-        viewModel.getData()
+        viewModel.getData(rocketData)
 
         observeLiveData()
     }
@@ -37,7 +45,6 @@ class RocketDetail : AppCompatActivity() {
                 detail_first_flight.text = it.firstFlight
                 detail_success.text = it.successRatePct.toString()
                 detail_type.text = it.type
-
             }
 
         })

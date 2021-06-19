@@ -17,7 +17,7 @@
         app:bottomShadowAlpha="0.6"
         app:carouselBackground="#FFF"
         app:carouselType="SHOWCASE"
-        app:imagePlaceholder="@drawable/ic_favourite_black"
+        app:imagePlaceholder="@drawable/rocket_placeholder"
         app:imageScaleType="fitCenter"
         app:nextButtonId="@id/btn_next"
         app:nextButtonLayout="@layout/next_button_layout"

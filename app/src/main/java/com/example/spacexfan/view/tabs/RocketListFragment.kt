@@ -1,27 +1,26 @@
 package com.example.spacexfan.view.tabs
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.spacexfan.R
 import com.example.spacexfan.adapter.RocketListAdapter
+import com.example.spacexfan.model.RocketModel
+import com.example.spacexfan.view.detail.RocketDetail
 import com.example.spacexfan.viewmodel.RocketListViewModel
 import kotlinx.android.synthetic.main.fragment_rocket_list.*
-import kotlinx.android.synthetic.main.fragment_upcoming_launches.*
 
 class RocketListFragment : Fragment() {
 
     private lateinit var viewModel : RocketListViewModel
-    private val recyclerRocketListAdapter = RocketListAdapter(arrayListOf())
+    private val recyclerRocketListAdapter = RocketListAdapter(arrayListOf(), this)
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,10 +61,10 @@ class RocketListFragment : Fragment() {
 
         viewModel.rocketNotFound.observe(viewLifecycleOwner, { isNotFound ->
             isNotFound?.let {
-                if (it){
+                if (it) {
                     not_found.visibility = View.VISIBLE
                     rockets_list_recycler.visibility = View.INVISIBLE
-                } else{
+                } else {
                     not_found.visibility = View.INVISIBLE
                 }
             }
@@ -73,16 +72,21 @@ class RocketListFragment : Fragment() {
 
         viewModel.rocketsLoading.observe(viewLifecycleOwner, { isLoading ->
             isLoading?.let {
-                if (it){
+                if (it) {
                     loading.visibility = View.VISIBLE
                     not_found.visibility = View.INVISIBLE
                     rockets_list_recycler.visibility = View.INVISIBLE
-                } else{
+                } else {
                     loading.visibility = View.INVISIBLE
                 }
             }
 
         })
+    }
+    fun onDetailClick(data: RocketModel) {
+        val intent = Intent(context, RocketDetail::class.java)
+        intent.putExtra("Rocket", data)
+        context?.let { ContextCompat.startActivity(it, intent, null) }
     }
 
 }

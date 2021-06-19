@@ -11,14 +11,15 @@ import com.example.spacexfan.R
 import com.example.spacexfan.model.RocketModel
 import com.example.spacexfan.utils.loadImage
 import com.example.spacexfan.utils.notFoundPlaceholder
-import com.example.spacexfan.view.detail.RocketDetail
+import com.example.spacexfan.view.tabs.RocketListFragment
 import kotlinx.android.synthetic.main.item_rocket_list.view.*
 
 
-class RocketListAdapter(val rocketList: ArrayList<RocketModel>) : RecyclerView.Adapter<RocketListAdapter.RocketListViewHolder>() {
-    class RocketListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class RocketListAdapter(rockets: ArrayList<RocketModel>, parentFragment : RocketListFragment) : RecyclerView.Adapter<RocketListAdapter.RocketListViewHolder>() {
+    private val rocketList : ArrayList<RocketModel> = rockets
+    private val fragment : RocketListFragment = parentFragment
 
-    }
+    class RocketListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RocketListViewHolder {
@@ -72,10 +73,12 @@ class RocketListAdapter(val rocketList: ArrayList<RocketModel>) : RecyclerView.A
 
 
         //Detail Button
+        val data: RocketModel = rocketList[position]
         holder.itemView.go_detail_page.setOnClickListener{
-            val intent = Intent(holder.itemView.context, RocketDetail::class.java)
-            startActivity(holder.itemView.context, intent, null)
+            fragment.onDetailClick(data)
         }
+
+
     }
 
     override fun getItemCount(): Int {

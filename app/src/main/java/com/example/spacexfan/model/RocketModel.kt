@@ -2,6 +2,7 @@ package com.example.spacexfan.model
 
 import com.example.spacexfan.model.modelproperties.*
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 /*
  * https://api.spacexdata.com/v4/rockets
@@ -23,4 +24,4 @@ data class RocketModel(
     @SerializedName("description") var description : String,
     @SerializedName("id") var id : String
 
-)
+) : Serializable
