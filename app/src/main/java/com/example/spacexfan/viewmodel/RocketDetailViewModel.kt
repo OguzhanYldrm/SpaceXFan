@@ -13,7 +13,7 @@ class RocketDetailViewModel : ViewModel() {
 
     fun getData(){
         val rocket = RocketModel(
-            Height(1000),
+            Height(100.0),
             Diameter(3.5),
             Mass(250000),
             listOf("a"),

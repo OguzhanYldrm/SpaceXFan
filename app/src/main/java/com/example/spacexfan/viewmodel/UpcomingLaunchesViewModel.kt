@@ -7,33 +7,42 @@ import com.example.spacexfan.model.modelproperties.Flickr
 import com.example.spacexfan.model.modelproperties.Links
 import com.example.spacexfan.model.modelproperties.Patch
 import com.example.spacexfan.model.modelproperties.Reddit
+import com.example.spacexfan.service.SpaceXAPIService
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.observers.DisposableSingleObserver
+import io.reactivex.schedulers.Schedulers
 
 class UpcomingLaunchesViewModel : ViewModel() {
+
+    private val api : SpaceXAPIService = SpaceXAPIService()
+    private val disposable = CompositeDisposable()
 
     val launches = MutableLiveData<List<UpcomingModel>>()
     val launchNotFound = MutableLiveData<Boolean>()
     val launchesLoading = MutableLiveData<Boolean>()
 
     fun refreshLaunches(){
-        val launchList = arrayListOf<UpcomingModel>()
+        launchesLoading.value = true
 
-        val upcoming = UpcomingModel(
-            Links(
-                Patch("",""),
-                Reddit("",""),
-                Flickr(listOf(), listOf()), "", "ASD", ""),
-            "10.10.2021",
-            "Falcon 9",
-            "Launched to the moon",
-            100,
-            "Starlink 20",
-            "10000")
+        disposable.add(
+            api.getAllUpcomingLaunches()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(object : DisposableSingleObserver<List<UpcomingModel>>() {
+                    override fun onSuccess(t: List<UpcomingModel>) {
+                        launches.value = t
+                        launchNotFound.value = false
+                        launchesLoading.value = false
+                    }
 
-        launchList.add(upcoming)
+                    override fun onError(e: Throwable) {
+                        launchNotFound.value = true
+                        launchesLoading.value = false
+                    }
 
-        launches.value = launchList
-        launchNotFound.value = false
-        launchesLoading.value = false
+                })
+        )
     }
 
 }

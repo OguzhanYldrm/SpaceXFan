@@ -11,6 +11,7 @@ import com.example.spacexfan.R
 import com.example.spacexfan.adapter.RocketListAdapter
 import com.example.spacexfan.viewmodel.RocketListViewModel
 import kotlinx.android.synthetic.main.fragment_rocket_list.*
+import kotlinx.android.synthetic.main.fragment_upcoming_launches.*
 
 class RocketListFragment : Fragment() {
 
@@ -37,6 +38,15 @@ class RocketListFragment : Fragment() {
 
         rockets_list_recycler.layoutManager = LinearLayoutManager(context)
         rockets_list_recycler.adapter = recyclerRocketListAdapter
+
+        rocket_list_refresh.setOnRefreshListener {
+            loading.visibility = View.VISIBLE
+            not_found.visibility = View.INVISIBLE
+            rockets_list_recycler.visibility = View.INVISIBLE
+            viewModel.refreshRockets()
+            rocket_list_refresh.isRefreshing = false
+        }
+
 
         observeLiveData()
 

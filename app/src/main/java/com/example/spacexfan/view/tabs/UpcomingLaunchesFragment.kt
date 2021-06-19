@@ -37,6 +37,14 @@ class UpcomingLaunchesFragment : Fragment() {
         upcoming_launches_recycler.layoutManager = LinearLayoutManager(context)
         upcoming_launches_recycler.adapter = recyclerUpcomingLaunchesAdapter
 
+        upcoming_launches_refresh.setOnRefreshListener {
+            loading_launch.visibility = View.VISIBLE
+            not_found_launch.visibility = View.INVISIBLE
+            upcoming_launches_recycler.visibility = View.INVISIBLE
+            viewModel.refreshLaunches()
+            upcoming_launches_refresh.isRefreshing = false
+        }
+
         observeLiveData()
 
     }
