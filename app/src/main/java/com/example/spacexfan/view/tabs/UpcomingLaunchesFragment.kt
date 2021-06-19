@@ -13,6 +13,7 @@ import com.example.spacexfan.R
 import com.example.spacexfan.adapter.UpcomingLaunchesAdapter
 import com.example.spacexfan.model.RocketModel
 import com.example.spacexfan.model.UpcomingModel
+import com.example.spacexfan.utils.loadGif
 import com.example.spacexfan.view.detail.RocketDetail
 import com.example.spacexfan.view.detail.UpcomingDetail
 import com.example.spacexfan.viewmodel.UpcomingLaunchesViewModel
@@ -33,6 +34,7 @@ class UpcomingLaunchesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loading_launch.loadGif()
         viewModel = ViewModelProviders.of(this).get(UpcomingLaunchesViewModel::class.java)
         viewModel.refreshLaunches()
 

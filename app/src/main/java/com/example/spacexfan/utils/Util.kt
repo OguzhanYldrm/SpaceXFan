@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.ImageView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.spacexfan.R
 
@@ -20,6 +21,14 @@ fun ImageView.loadImage(url : String?, placeholder: CircularProgressDrawable){
         .into(this)
 }
 
+fun ImageView.loadGif(){
+    Glide.with(context)
+        .load(R.raw.loading)
+        .placeholder(R.drawable.loading_1)
+        .diskCacheStrategy(DiskCacheStrategy.DATA)
+        .into(this)
+}
+
 fun notFoundPlaceholder(context : Context) : CircularProgressDrawable {
     return CircularProgressDrawable(context).apply {
         strokeWidth = 6f
@@ -27,3 +36,4 @@ fun notFoundPlaceholder(context : Context) : CircularProgressDrawable {
         start()
     }
 }
+

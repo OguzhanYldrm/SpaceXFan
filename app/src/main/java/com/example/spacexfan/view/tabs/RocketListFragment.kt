@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.spacexfan.R
 import com.example.spacexfan.adapter.RocketListAdapter
 import com.example.spacexfan.model.RocketModel
+import com.example.spacexfan.utils.loadGif
 import com.example.spacexfan.view.detail.RocketDetail
 import com.example.spacexfan.viewmodel.RocketListViewModel
 import kotlinx.android.synthetic.main.fragment_rocket_list.*
@@ -32,6 +33,7 @@ class RocketListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loading.loadGif()
         viewModel = ViewModelProviders.of(this).get(RocketListViewModel::class.java)
         viewModel.refreshRockets()
 

@@ -20,6 +20,7 @@ class SplashActivity : AppCompatActivity() {
         val monitor = Runnable {
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         mHandler.postDelayed(monitor, 2500)

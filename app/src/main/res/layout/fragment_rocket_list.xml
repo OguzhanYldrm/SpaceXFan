@@ -46,7 +46,6 @@
                 android:layout_height="95dp"
                 android:layout_centerInParent="true"
                 android:contentDescription="@string/loading"
-                android:background="@drawable/dr_loading_animation"
                 android:visibility="gone" />
         </RelativeLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

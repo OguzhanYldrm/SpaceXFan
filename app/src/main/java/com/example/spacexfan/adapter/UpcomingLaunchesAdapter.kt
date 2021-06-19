@@ -53,7 +53,11 @@ class UpcomingLaunchesAdapter(launches : ArrayList<UpcomingModel>, parentFragmen
 
 
         //Flight Date
-        holder.itemView.date_launch.text = launchesList[position].fireDate
+        val strs = launchesList[position].fireDate.split("T").toTypedArray()
+        val fireDate : String = "Fire Date : " + strs[0]
+        holder.itemView.date_launch.text = fireDate
+
+
 
         //Image
         val url : String?  = launchesList[position].links.patch.small

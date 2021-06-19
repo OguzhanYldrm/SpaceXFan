@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/media_image"
                 android:text="@string/november_10"
-                android:layout_marginStart="25dp"/>
+                android:layout_marginStart="16dp"/>
 
             <View
                 android:id="@+id/line"
