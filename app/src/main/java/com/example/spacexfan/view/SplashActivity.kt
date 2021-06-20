@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.spacexfan.R
+import com.example.spacexfan.view.auth.Login
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
@@ -20,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
 
         @Suppress("DEPRECATION") val mHandler = Handler()
         val monitor = Runnable {
-            val intent = Intent(applicationContext, MainActivity::class.java)
+            val intent = Intent(applicationContext, Login::class.java)
             startActivity(intent)
             finish()
         }

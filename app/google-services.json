@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "163632993388",
+    "project_id": "spacex-fan-app",
+    "storage_bucket": "spacex-fan-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163632993388:android:b53617a934da25fa41b449",
+        "android_client_info": {
+          "package_name": "com.example.spacexfan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "163632993388-lc6lumr7ifkvv296qhc4sif8fpea9u8g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.spacexfan",
+            "certificate_hash": "4409c4198d179f61ec54cbe00ba67afb78f1b178"
+          }
+        },
+        {
+          "client_id": "163632993388-i6135lb3d90lhnlemjgi5a5d6qc9kesq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBlYFGeL3cWCEsYFXbBzTvMWCeo4MBpKE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "163632993388-i6135lb3d90lhnlemjgi5a5d6qc9kesq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -48,4 +48,18 @@
     <string name="launch">Launch</string>
     <string name="upcoming_detail_image">Upcoming Detail Image</string>
     <string name="splash_logo">Splash Logo</string>
+    <string name="login">Login</string>
+    <string name="register_logo">Register Logo</string>
+    <string name="name_register">Name</string>
+    <string name="surname">Surname</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="please_accept">Please accept&#160;</string>
+    <string name="user_agreement">User Agreement.</string>
+    <string name="email_validation">^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$</string>
+    <string name="valid_password"><![CDATA[^(?=.*[0-9])(?=.*[A-Z])(?=.*[.!?@*_+,$#&=\'])(?=\\S+$).{4,}$]]></string>
+    <string name="register">Register</string>
+    <string name="exit">Exit</string>
+    <string name="login_logo">Login Logo</string>
+
 </resources>

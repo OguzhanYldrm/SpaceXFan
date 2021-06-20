@@ -2,27 +2,32 @@ package com.example.spacexfan.view
 
 import android.app.KeyguardManager
 import android.content.Context
-import android.content.DialogInterface
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.biometrics.BiometricPrompt
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CancellationSignal
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.spacexfan.R
+import com.example.spacexfan.view.auth.Login
 import com.example.spacexfan.view.tabs.FavouriteRocketsFragment
 import com.example.spacexfan.view.tabs.RocketListFragment
 import com.example.spacexfan.view.tabs.UpcomingLaunchesFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
-import javax.crypto.KeyGenerator
+
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var mAuth: FirebaseAuth
     private var currentTab : Int = R.id.rockets_page
     private var cancellationSignal : CancellationSignal? = null
     private val authCallback : BiometricPrompt.AuthenticationCallback
@@ -49,7 +54,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        mAuth = FirebaseAuth.getInstance()
         checkBiometricSupport()
 
         val bottomNavigation : BottomNavigationView = findViewById(R.id.bottom_navigation)
@@ -66,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.favourite_page -> {
                     currentTab = bottomNavigation.selectedItemId
-                    val biometricPrompt : BiometricPrompt = BiometricPrompt.Builder(this)
+                    val biometricPrompt: BiometricPrompt = BiometricPrompt.Builder(this)
                         .setTitle("Favourite Page Authentication")
                         .setSubtitle("Authentication is required")
                         .setDescription("To enter Favourite Tab you need to successfully complete authentication.")
@@ -120,7 +125,26 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    private fun notifyAuthStatus(message : String){
+    private fun notifyAuthStatus(message: String){
         Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.status_bar_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        if (id == R.id.action_logout) {
+            mAuth.signOut()
+            val logoutIntent = Intent(this@MainActivity, Login::class.java)
+            startActivity(logoutIntent)
+            ActivityCompat.finishAffinity(this@MainActivity)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
 }
