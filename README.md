@@ -2,11 +2,9 @@
 # SpaceX Fan
 <br />
 <p align="center">
-  <p align="center"> <img src="/app/src/main/res/drawable/img1.png" alt="Feature" width="512" height="250" style="display: block; margin: 0 auto" /></p>
+  <p align="center"> <img src="/app/src/main/res/drawable/cover.png" alt="Feature" width="512" height="250" style="display: block; margin: 0 auto" /></p>
   
 </p>
-
-
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -28,10 +26,10 @@ SpaceX Fan, provides a smooth interface consist of two section. Users can see th
 <!-- SCREENSHOTS -->
 ### Screenshots
 <p style="float:left"> 
-<img src="/app/src/main/res/drawable/img1.png" alt="Feature" width="245" height="440"/>
-<img src="/app/src/main/res/drawable/img2.png" alt="Feature" width="245" height="440"/>
-<img src="/app/src/main/res/drawable/img3.png" alt="Feature" width="245" height="440"/>
-<img src="/app/src/main/res/drawable/img4.png" alt="Feature" width="250" height="440"/>
+<img src="/app/src/main/res/drawable/img1.png"/>
+<img src="/app/src/main/res/drawable/img2.png"/>
+<img src="/app/src/main/res/drawable/img3.png"/>
+<img src="/app/src/main/res/drawable/img4.png"/>
 </p>
 
 <!-- CONTRIBUTING -->
