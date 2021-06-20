@@ -60,5 +60,6 @@
     <string name="register">Register</string>
     <string name="exit">Exit</string>
     <string name="login_logo">Login Logo</string>
+    <string name="favourite">Favourite</string>
 
 </resources>
