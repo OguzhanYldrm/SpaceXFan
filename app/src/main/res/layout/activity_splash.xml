@@ -6,22 +6,12 @@
     tools:context=".view.SplashActivity">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/splash"
-        android:layout_alignParentTop="true"
-        android:contentDescription="@string/splash_screen_image"
-         android:scaleType="fitXY"/>
-
-    <TextView
-        android:id="@+id/splash_text"
+        android:id="@+id/splash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/spacex_fan"
-        android:layout_centerInParent="true"
-        android:inputType="none"
-        android:textColor="@color/white"
-        android:fontFamily="casual"
-        android:textSize="55sp"/>
+        android:scaleType="centerInside"
+        android:contentDescription="@string/splash_logo"
+        android:src="@drawable/splash_logo"
+        android:background="@color/white"/>
 
 </RelativeLayout>
