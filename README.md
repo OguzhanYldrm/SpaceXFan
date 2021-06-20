@@ -26,10 +26,10 @@ SpaceX Fan, provides a smooth interface consist of two section. Users can see th
 <!-- SCREENSHOTS -->
 ### Screenshots
 <p style="float:left"> 
-<img src="/app/src/main/res/drawable/img1.png"/>
-<img src="/app/src/main/res/drawable/img2.png"/>
-<img src="/app/src/main/res/drawable/img3.png"/>
-<img src="/app/src/main/res/drawable/img4.png"/>
+<img src="/app/src/main/res/drawable/img1.jpeg" alt="Feature" width="230" height="440"/>
+<img src="/app/src/main/res/drawable/img2.jpeg" alt="Feature" width="230" height="440"/>
+<img src="/app/src/main/res/drawable/img3.jpeg" alt="Feature" width="230" height="440"/>
+<img src="/app/src/main/res/drawable/img4.jpeg" alt="Feature" width="230" height="440"/>
 </p>
 
 <!-- CONTRIBUTING -->
