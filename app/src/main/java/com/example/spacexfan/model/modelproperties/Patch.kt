@@ -6,7 +6,6 @@ import java.io.Serializable
 
 data class Patch (
 
-   @SerializedName("small") var small : String,
-   @SerializedName("large") var large : String
+   @SerializedName("small") var small : String?,
 
 )  : Serializable

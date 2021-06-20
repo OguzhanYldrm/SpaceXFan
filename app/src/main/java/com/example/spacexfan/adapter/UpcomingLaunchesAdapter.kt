@@ -5,6 +5,7 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.spacexfan.R
@@ -22,15 +23,18 @@ import kotlinx.android.synthetic.main.item_rocket_list.view.*
 import kotlinx.android.synthetic.main.item_rocket_list.view.go_detail_page
 import kotlinx.android.synthetic.main.item_upcoming_launches.view.*
 
-class UpcomingLaunchesAdapter(launches : ArrayList<UpcomingModel>, parentFragment: UpcomingLaunchesFragment) : RecyclerView.Adapter<UpcomingLaunchesAdapter.UpcomingLaunchesViewHolder>() {
-    private val launchesList : ArrayList<UpcomingModel> = launches
-    private val fragment : UpcomingLaunchesFragment = parentFragment
+class UpcomingLaunchesAdapter(
+    launches: ArrayList<UpcomingModel>,
+    parentFragment: UpcomingLaunchesFragment
+) : RecyclerView.Adapter<UpcomingLaunchesAdapter.UpcomingLaunchesViewHolder>() {
+    private val launchesList: ArrayList<UpcomingModel> = launches
+    private val fragment: UpcomingLaunchesFragment = parentFragment
 
-    class UpcomingLaunchesViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
+    class UpcomingLaunchesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpcomingLaunchesViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.item_upcoming_launches, parent,false)
+        val view = inflater.inflate(R.layout.item_upcoming_launches, parent, false)
         return UpcomingLaunchesViewHolder(view)
     }
 
@@ -40,12 +44,12 @@ class UpcomingLaunchesAdapter(launches : ArrayList<UpcomingModel>, parentFragmen
         holder.itemView.title_launch.text = launchesList[position].name
 
         //Detail
-        var detail : String? = launchesList[position].details
-        if (detail != null){
-            if(detail.length>120){
+        var detail: String? = launchesList[position].details
+        if (detail != null) {
+            if (detail.length > 120) {
                 detail = detail.substring(0, 119) + "..."
             }
-        } else{
+        } else {
             detail = "No detailed information found. Please check the links."
         }
 
@@ -54,15 +58,14 @@ class UpcomingLaunchesAdapter(launches : ArrayList<UpcomingModel>, parentFragmen
 
         //Flight Date
         val strs = launchesList[position].fireDate.split("T").toTypedArray()
-        val fireDate : String = "Fire Date : " + strs[0]
+        val fireDate: String = "Fire Date : " + strs[0]
         holder.itemView.date_launch.text = fireDate
 
 
-
         //Image
-        val url : String?  = launchesList[position].links.patch.small
-        if (url != null){
-            if (url != "" && (url.contains("http") || url.contains("https"))){
+        val url: String? = launchesList[position].links.patch.small
+        if (url != null) {
+            if (url != "" && (url.contains("http") || url.contains("https"))) {
                 holder.itemView.media_image_launch.loadImage(
                     url,
                     notFoundPlaceholder(holder.itemView.context)
@@ -71,22 +74,25 @@ class UpcomingLaunchesAdapter(launches : ArrayList<UpcomingModel>, parentFragmen
         }
 
         //Wikipedia
-        val wikiLink : String? = launchesList[position].links.wikipedia
+        val wikiLink: String? = launchesList[position].links.wikipedia
 
-        if (wikiLink != null){
-            if (wikiLink != ""){
-                holder.itemView.go_wikipedia_launch.setOnClickListener {
+
+        holder.itemView.go_wikipedia_launch.setOnClickListener {
+            if (wikiLink != null) {
+                if (wikiLink != "") {
                     val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(wikiLink))
                     startActivity(holder.itemView.context, browserIntent, null)
                 }
+            } else {
+                Toast.makeText(holder.itemView.context, "No Link Found", Toast.LENGTH_SHORT).show()
             }
         }
 
 
         //Detail Button
-        val data : UpcomingModel = launchesList[position]
-        holder.itemView.go_detail_page_launch.setOnClickListener{
-        fragment.onDetailClick(data)
+        val data: UpcomingModel = launchesList[position]
+        holder.itemView.go_detail_page_launch.setOnClickListener {
+            fragment.onDetailClick(data)
         }
     }
 
@@ -94,7 +100,7 @@ class UpcomingLaunchesAdapter(launches : ArrayList<UpcomingModel>, parentFragmen
         return launchesList.size
     }
 
-    fun updateLaunchList(newLaunchesList : List<UpcomingModel>){
+    fun updateLaunchList(newLaunchesList: List<UpcomingModel>) {
         launchesList.clear()
         launchesList.addAll(newLaunchesList)
         notifyDataSetChanged()

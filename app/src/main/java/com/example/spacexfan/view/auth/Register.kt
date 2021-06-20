@@ -139,7 +139,6 @@ class Register : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.register_button -> {
-                println("aslkfhaldjhasljdhasldhjakjshd")
                 registerClicked = true
                 email = emailEditText!!.text.toString().trim { it <= ' ' }
                 password = passwordEditText!!.text.toString()

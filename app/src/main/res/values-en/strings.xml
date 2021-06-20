@@ -16,7 +16,7 @@
     <string name="height">Height :</string>
     <string name="size">Size</string>
     <string name="success_rate">Success Rate :</string>
-    <string name="cost_per_launch">Cost Per Launch :</string>
+    <string name="cost_per_launch">Cost / Launch :</string>
     <string name="active">Active :</string>
     <string name="first_flight">First Flight :</string>
     <string name="company">Company :</string>
@@ -62,5 +62,7 @@
     <string name="exit">Exit</string>
     <string name="login_logo">Login Logo</string>
     <string name="favourite">Favourite</string>
+    <string name="links">Links</string>
+    <string name="upcoming">Upcoming</string>
 
 </resources>

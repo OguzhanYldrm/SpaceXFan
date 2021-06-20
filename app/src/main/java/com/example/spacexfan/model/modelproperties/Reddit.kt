@@ -6,7 +6,5 @@ import java.io.Serializable
 
 data class Reddit (
 
-   @SerializedName("campaign") var campaign : String,
-   @SerializedName("launch") var launch : String
-
+   @SerializedName("campaign") var campaign : String?
 )  : Serializable

@@ -18,6 +18,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginHorizontal="15dp"
         android:layout_below="@id/upcoming_image"
         >
         <LinearLayout
@@ -25,11 +26,89 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="10dp"
+                android:elevation="12dp"
+                app:cardElevation="7dp"
+                app:cardCornerRadius="6dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/links"
+                        android:gravity="center_horizontal"
+                        android:textSize="20sp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        android:alpha="0.3"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:baselineAligned="false"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingVertical="7dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_weight="1">
+                        <ImageView
+                            android:id="@+id/go_wiki_upcoming"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:contentDescription="@string/upcoming"
+                            android:background="@drawable/wikipedia"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_weight="1">
+                        <ImageView
+                            android:id="@+id/go_reddit_upcoming"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:contentDescription="@string/upcoming"
+                            android:background="@drawable/reddit"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_weight="1">
+                        <ImageView
+                            android:id="@+id/go_article_upcoming"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:contentDescription="@string/upcoming"
+                            android:background="@drawable/newspaper"/>
+                    </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="10dp"
                 android:elevation="12dp"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="6dp"
@@ -109,19 +188,19 @@
                         android:paddingEnd="0dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:text="@string/flight_number"
-                            android:textSize="18sp"
-                            android:layout_weight="0.4"
+                            android:textSize="17sp"
+                            android:layout_weight="0.5"
                             />
                         <TextView
                             android:id="@+id/upcoming_flight_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/_133"
-                            android:textSize="18sp"
-                            android:layout_weight="0.6"
+                            android:textSize="17sp"
+                            android:layout_weight="0.5"
                             />
                     </LinearLayout>
 
@@ -133,19 +212,19 @@
                         android:paddingEnd="0dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:text="@string/flight_name"
-                            android:textSize="18sp"
-                            android:layout_weight="0.4"
+                            android:textSize="17sp"
+                            android:layout_weight="0.5"
                             />
                         <TextView
                             android:id="@+id/upcoming_flight_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/spacex"
-                            android:textSize="18sp"
-                            android:layout_weight="0.6"
+                            android:textSize="17sp"
+                            android:layout_weight="0.5"
                             />
                     </LinearLayout>
 
@@ -158,43 +237,19 @@
                         android:weightSum="1">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/rocket"
-                            android:textSize="18sp"
-                            android:layout_weight="0.4"
-                            />
-                        <TextView
-                            android:id="@+id/upcoming_rocket"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/falcon_9"
-                            android:textSize="18sp"
-                            android:layout_weight="0.6"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp"
-                        android:weightSum="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:text="@string/fire_date"
-                            android:textSize="18sp"
-                            android:layout_weight="0.4"
+                            android:textSize="17sp"
+                            android:layout_weight="0.5"
                             />
                         <TextView
                             android:id="@+id/upcoming_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/_10_10_2000"
-                            android:textSize="18sp"
-                            android:layout_weight="0.6"
+                            android:textSize="17sp"
+                            android:layout_weight="0.5"
                             />
                     </LinearLayout>
 

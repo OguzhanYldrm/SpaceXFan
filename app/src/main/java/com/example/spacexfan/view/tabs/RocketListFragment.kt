@@ -104,7 +104,7 @@ class RocketListFragment : Fragment() {
 
     fun onFavouriteClick(data: RocketModel){
 
-        val favRocket = hashMapOf<String, Any>()
+        val favRocket = hashMapOf<String, Any?>()
         favRocket["height"] = data.height.meters
         favRocket["diameter"] = data.diameter.meters
         favRocket["mass"] = data.mass.kg
@@ -138,6 +138,11 @@ class RocketListFragment : Fragment() {
             }
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.refreshRockets()
     }
 
 }

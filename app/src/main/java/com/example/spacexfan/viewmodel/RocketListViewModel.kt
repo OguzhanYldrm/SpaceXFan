@@ -41,14 +41,12 @@ class RocketListViewModel : ViewModel() {
                         rockets.value = t
                         rocketNotFound.value = false
                         rocketsLoading.value = false
-                        println("Successfull")
                     }
 
                     override fun onError(e: Throwable) {
                         rocketNotFound.value = true
                         rocketsLoading.value = false
                         Log.e("HTTP ERROR : ", e.message.toString())
-                        println("Unsuccessfull")
                     }
 
                 })

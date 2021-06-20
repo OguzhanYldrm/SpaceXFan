@@ -8,8 +8,7 @@ data class Links (
 
     @SerializedName("patch") var patch : Patch,
     @SerializedName("reddit") var reddit : Reddit,
-    @SerializedName("webcast") var webcast : String,
-    @SerializedName("article") var article : String,
-    @SerializedName("wikipedia") var wikipedia : String
+    @SerializedName("article") var article : String?,
+    @SerializedName("wikipedia") var wikipedia : String?
 
 )  : Serializable

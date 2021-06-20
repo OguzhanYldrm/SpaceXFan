@@ -20,7 +20,7 @@ data class RocketModel(
     @SerializedName("success_rate_pct") var successRatePct : Long,
     @SerializedName("first_flight") var firstFlight : String,
     @SerializedName("company") var company : String,
-    @SerializedName("wikipedia") var wikipedia : String,
+    @SerializedName("wikipedia") var wikipedia : String?,
     @SerializedName("description") var description : String,
     @SerializedName("id") var id : String
 
