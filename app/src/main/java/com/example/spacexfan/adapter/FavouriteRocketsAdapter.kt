@@ -12,6 +12,7 @@ import com.example.spacexfan.R
 import com.example.spacexfan.model.RocketModel
 import com.example.spacexfan.utils.loadImage
 import com.example.spacexfan.utils.notFoundPlaceholder
+import com.example.spacexfan.view.tabs.FavouriteRocketsFragment
 import com.example.spacexfan.view.tabs.RocketListFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -19,22 +20,22 @@ import kotlinx.android.synthetic.main.activity_rocket_detail.*
 import kotlinx.android.synthetic.main.item_rocket_list.view.*
 
 
-class RocketListAdapter(rockets: ArrayList<RocketModel>, parentFragment : RocketListFragment) : RecyclerView.Adapter<RocketListAdapter.RocketListViewHolder>() {
+class FavouriteRocketsAdapter(rockets: ArrayList<RocketModel>, parentFragment : FavouriteRocketsFragment) : RecyclerView.Adapter<FavouriteRocketsAdapter.FavouriteRocketsViewHolder>() {
     private val rocketList : ArrayList<RocketModel> = rockets
-    private val fragment : RocketListFragment = parentFragment
+    private val fragment : FavouriteRocketsFragment = parentFragment
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     private var mFirestore : FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    class RocketListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    class FavouriteRocketsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RocketListViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavouriteRocketsViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.item_rocket_list, parent, false)
-        return RocketListViewHolder(view)
+        return FavouriteRocketsViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: RocketListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FavouriteRocketsViewHolder, position: Int) {
 
         //Rocket Name
         holder.itemView.title.text = rocketList[position].name

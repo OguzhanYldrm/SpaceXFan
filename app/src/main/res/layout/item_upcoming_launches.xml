@@ -35,14 +35,25 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/media_image_launch"
                     android:layout_marginStart="16dp"
+                    android:layout_marginVertical="10dp"
                     android:text="@string/november_10" />
+
+                <ImageView
+                    android:id="@+id/go_wikipedia_launch"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
+                    android:layout_below="@id/media_image_launch"
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="@string/wikipedia_icon"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/wikipedia" />
 
                 <View
                     android:id="@+id/line"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_below="@id/date_launch"
-                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/go_wikipedia_launch"
                     android:alpha="0.5"
                     android:background="@color/black" />
 
@@ -65,20 +76,7 @@
 
                 </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/go_wikipedia_launch"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@id/line"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginHorizontal="25dp"
-                    android:layout_marginTop="5dp"
-                    android:contentDescription="@string/wikipedia_icon"
-                    android:elevation="20dp"
-                    android:outlineProvider="paddedBounds"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/wikipedia" />
+
 
 
                 <TextView

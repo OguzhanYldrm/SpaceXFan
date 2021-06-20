@@ -10,7 +10,7 @@
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/carousel"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="220dp"
         android:layout_margin="3dp"
         android:layout_gravity="top"
         app:autoWidthFixing="true"
@@ -33,16 +33,33 @@
         app:showTopShadow="true"
         app:topShadowAlpha="0.6" />
 
+    <RelativeLayout
+        android:id="@+id/favourite_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/carousel">
+
+        <ImageView
+            android:id="@+id/favourite_button_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/favourite"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="25dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/dr_favourite_button" />
+
+    </RelativeLayout>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/carousel"
+        android:layout_below="@id/favourite_button_layout"
         >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

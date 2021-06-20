@@ -72,9 +72,6 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
 
-    //Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1"
-
     //Api
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"

@@ -6,6 +6,6 @@ import java.io.Serializable
 
 data class Mass (
 
-   @SerializedName("kg") var kg : Int
+   @SerializedName("kg") var kg : Long
 
 ) : Serializable

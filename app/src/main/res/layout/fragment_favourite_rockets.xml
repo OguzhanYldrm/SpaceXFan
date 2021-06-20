@@ -2,6 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/fav_rockets_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <RelativeLayout
 
         android:layout_width="match_parent"
@@ -18,7 +22,8 @@
             android:id="@+id/no_favourite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true">
+            android:layout_centerInParent="true"
+            android:visibility="invisible">
             <ImageView
                 android:id="@+id/iv_no_favourite"
                 android:layout_width="wrap_content"
@@ -44,4 +49,5 @@
             android:visibility="visible" />
 
     </RelativeLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

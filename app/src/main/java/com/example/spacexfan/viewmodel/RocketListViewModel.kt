@@ -9,6 +9,8 @@ import com.example.spacexfan.model.modelproperties.Diameter
 import com.example.spacexfan.model.modelproperties.Height
 import com.example.spacexfan.model.modelproperties.Mass
 import com.example.spacexfan.service.SpaceXAPIService
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
@@ -19,6 +21,9 @@ class RocketListViewModel : ViewModel() {
     private val api : SpaceXAPIService = SpaceXAPIService()
     private val disposable = CompositeDisposable()
 
+
+    private var mFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     val rockets = MutableLiveData<List<RocketModel>>()
     val rocketNotFound = MutableLiveData<Boolean>()
     val rocketsLoading = MutableLiveData<Boolean>()
@@ -48,6 +53,14 @@ class RocketListViewModel : ViewModel() {
 
                 })
         )
+    }
+
+    fun deleteFavouriteRocket(id : String){
+        val docRef = mFirestore.collection("Users").document(mAuth.uid.toString()).collection("Favourites").document(id)
+        docRef
+            .delete()
+            .addOnSuccessListener { refreshRockets() }
+            .addOnFailureListener { e -> Log.e("Firebase Error", "Error deleting document", e) }
     }
 
 }

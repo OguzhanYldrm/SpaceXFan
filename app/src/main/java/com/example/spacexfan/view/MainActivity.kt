@@ -8,6 +8,7 @@ import android.hardware.biometrics.BiometricPrompt
 import android.os.Build
 import android.os.Bundle
 import android.os.CancellationSignal
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -22,12 +23,15 @@ import com.example.spacexfan.view.tabs.RocketListFragment
 import com.example.spacexfan.view.tabs.UpcomingLaunchesFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var mFirestore: FirebaseFirestore
     private var currentTab : Int = R.id.rockets_page
     private var cancellationSignal : CancellationSignal? = null
     private val authCallback : BiometricPrompt.AuthenticationCallback
@@ -54,7 +58,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //Firebase Operations
         mAuth = FirebaseAuth.getInstance()
+        mFirestore = FirebaseFirestore.getInstance()
+        addUserToFirestoreIfNotExists()
+
         checkBiometricSupport()
 
         val bottomNavigation : BottomNavigationView = findViewById(R.id.bottom_navigation)
@@ -92,6 +101,21 @@ class MainActivity : AppCompatActivity() {
         replaceFragment(RocketListFragment())
 
 
+    }
+
+    private fun addUserToFirestoreIfNotExists() {
+        val docIdRef: DocumentReference = mFirestore.collection("Users").document(mAuth.uid.toString())
+        docIdRef.get().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if (!document!!.exists()) {
+                    mFirestore.collection("Users").document(mAuth.uid.toString()).collection("Favourites").document("Temp").set(hashMapOf<String, Any>())
+
+                }
+            } else {
+                Log.d("Firebase", "Failed with: ", task.exception)
+            }
+        }
     }
 
     private fun getCancelationSignal() : CancellationSignal {
