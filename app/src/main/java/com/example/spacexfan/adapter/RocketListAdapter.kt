@@ -15,7 +15,6 @@ import com.example.spacexfan.utils.notFoundPlaceholder
 import com.example.spacexfan.view.tabs.RocketListFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_rocket_detail.*
 import kotlinx.android.synthetic.main.item_rocket_list.view.*
 
 
@@ -68,7 +67,7 @@ class RocketListAdapter(rockets: ArrayList<RocketModel>, parentFragment : Rocket
         }
 
         //Wikipedia
-        val wikiLink : String = rocketList[position].wikipedia
+        val wikiLink : String? = rocketList[position].wikipedia
 
         if (wikiLink != ""){
             holder.itemView.go_wikipedia.setOnClickListener {
